@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using JBWooliesXTest.API.Services;
 using JBWooliesXTest.Core.HttpClientModel.Resource;
+using JBWooliesXTest.Core.Model.Request;
 using JBWooliesXTest.Core.Model.TrolleyTotal;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -88,23 +89,23 @@ namespace JBWooliesXTest.Test.Services
             var httpClient = FakeHttpClient.Create_WithContent(expectedResult.ToString(CultureInfo.InvariantCulture));
             var trolleyTotalRequest = new TrolleyTotalRequest()
             {
-                Quantities = new List<TrolleyTotalRequestQuantity>()
+                RequestedItems = new List<RequestedItem>()
                 {
-                    new TrolleyTotalRequestQuantity()
+                    new RequestedItem()
                 },
-                Specials = new List<TrolleyTotalRequestSpecial>()
+                Specials = new List<Special>()
                 {
-                    new TrolleyTotalRequestSpecial()
+                    new Special()
                     {
-                        Quantities = new List<TrolleyTotalRequestSpecialQuantity>()
+                        Inventory = new List<SpecialInventory>()
                         {
-                            new TrolleyTotalRequestSpecialQuantity()
+                            new SpecialInventory()
                         }
                     }
                 },
-                Products = new List<TrolleyTotalRequestProduct>()
+                Products = new List<Product>()
                 {
-                    new TrolleyTotalRequestProduct()
+                    new Product()
                 }
             };
             var sut = new ResourceServiceHttpHttpClient(httpClient, _mockOptions);

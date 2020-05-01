@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using JBWooliesXTest.API.Controllers;
 using JBWooliesXTest.Core.Abstracts;
+using JBWooliesXTest.Core.Model.Request;
 using JBWooliesXTest.Core.Model.TrolleyTotal;
 using Moq;
 using Xunit;
@@ -15,33 +16,33 @@ namespace JBWooliesXTest.Test.Controllers
         {
             _trolleyTotalRequest = new TrolleyTotalRequest()
             {
-                Quantities = new List<TrolleyTotalRequestQuantity>()
+                 RequestedItems= new List<RequestedItem>()
                 {
-                    new TrolleyTotalRequestQuantity() {Name = "1", Quantity = 3},
-                    new TrolleyTotalRequestQuantity() {Name = "2", Quantity = 2}
+                    new RequestedItem() {Name = "1", Quantity = 3},
+                    new RequestedItem() {Name = "2", Quantity = 2}
                 },
-                Products = new List<TrolleyTotalRequestProduct>()
+                Products = new List<Product>()
                 {
-                    new TrolleyTotalRequestProduct() {Name = "1", Price = 2},
-                    new TrolleyTotalRequestProduct() {Name = "2", Price = 5}
+                    new Product() {Name = "1", Price = 2},
+                    new Product() {Name = "2", Price = 5}
                 },
-                Specials = new List<TrolleyTotalRequestSpecial>()
+                Specials = new List<Special>()
                 {
-                    new TrolleyTotalRequestSpecial()
+                    new Special()
                     {
-                        Quantities = new List<TrolleyTotalRequestSpecialQuantity>()
+                        Inventory = new List<SpecialInventory>()
                         {
-                            new TrolleyTotalRequestSpecialQuantity() {Name = "1", Quantity = 3},
-                            new TrolleyTotalRequestSpecialQuantity() {Name = "2", Quantity = 0}
+                            new SpecialInventory() {Name = "1", Quantity = 3},
+                            new SpecialInventory() {Name = "2", Quantity = 0}
                         },
                         Total = 5
                     },
-                    new TrolleyTotalRequestSpecial()
+                    new Special()
                     {
-                        Quantities = new List<TrolleyTotalRequestSpecialQuantity>()
+                        Inventory = new List<SpecialInventory>()
                         {
-                            new TrolleyTotalRequestSpecialQuantity() {Name = "1", Quantity = 1},
-                            new TrolleyTotalRequestSpecialQuantity() {Name = "2", Quantity = 2}
+                            new SpecialInventory() {Name = "1", Quantity = 1},
+                            new SpecialInventory() {Name = "2", Quantity = 2}
                         },
                         Total = 10
                     }

@@ -1,6 +1,6 @@
 ﻿namespace JBWooliesXTest.Core.Model.TrolleyTotal
 {
-    public class TrolleyTotalRequestSpecialQuantity
+    public class SpecialInventory
     {
         public string Name { get; set; }
 

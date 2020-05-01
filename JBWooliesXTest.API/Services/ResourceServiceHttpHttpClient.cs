@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using JBWooliesXTest.Core.Abstracts;
 using JBWooliesXTest.Core.HttpClientModel.Resource;
+using JBWooliesXTest.Core.Model.Request;
 using JBWooliesXTest.Core.Model.TrolleyTotal;
 using Microsoft.Extensions.Options;
 

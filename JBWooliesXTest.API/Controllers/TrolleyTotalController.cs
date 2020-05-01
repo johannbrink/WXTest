@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using JBWooliesXTest.Core.Abstracts;
+using JBWooliesXTest.Core.Model.Request;
 using JBWooliesXTest.Core.Model.TrolleyTotal;
 using Microsoft.AspNetCore.Mvc;
 
