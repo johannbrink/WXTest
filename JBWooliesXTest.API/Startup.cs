@@ -2,6 +2,7 @@ using System;
 using System.Net.Http.Headers;
 using JBWooliesXTest.Core.Abstracts;
 using JBWooliesXTest.API.Services;
+using JBWooliesXTest.Core.Model.TrolleyCalculator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +30,7 @@ namespace JBWooliesXTest.API
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 });
             services.Configure<ResourceServiceHttpClientOptions>(Configuration.GetSection("ResourceService"));
+            services.AddTransient<ITrolleyCalculator, TrolleyCalculator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
