@@ -17,5 +17,7 @@
                 Quantity = other.Quantity
             };
         }
+
+        public bool Incomplete => Quantity > QuantityFilled;
     }
 }

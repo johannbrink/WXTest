@@ -15,12 +15,14 @@ namespace JBWooliesXTest.Test.Core
 {
     public class TrolleyCalculatorTests
     {
-        [Fact]
-        public async void Should_Calculate()
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public async void Should_Calculate(bool leaveOutAProduct)
         {
             // Arrange
             var expectedResponse = new decimal(14);
-            var request = CreateTrolleyTotalRequest();
+            var request = CreateTrolleyTotalRequest(leaveOutAProduct);
             var sut = new TrolleyCalculator();
 
             // Act
@@ -30,7 +32,7 @@ namespace JBWooliesXTest.Test.Core
             Assert.Equal(expectedResponse, response);
         }
 
-        private static TrolleyTotalRequest CreateTrolleyTotalRequest()
+        private static TrolleyTotalRequest CreateTrolleyTotalRequest(bool leaveOutAProduct)
         {
             return new TrolleyTotalRequest()
             {
@@ -60,11 +62,16 @@ namespace JBWooliesXTest.Test.Core
                         Total = 10
                     }
                 },
-                Products = new List<Product>()
-                {
-                    new Product() {Name = "1", Price = 2},
-                    new Product() {Name = "2", Price = 5}
-                }
+                Products = leaveOutAProduct
+                    ? new List<Product>()
+                    {
+                        new Product() {Name = "1", Price = 2}
+                    }
+                    : new List<Product>()
+                    {
+                        new Product() {Name = "1", Price = 2},
+                        new Product() {Name = "2", Price = 5}
+                    }
             };
 
         }
