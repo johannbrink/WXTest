@@ -10,17 +10,17 @@ namespace JBWooliesXTest.API.Controllers
     [Route("[controller]")]
     public class TrolleyTotalController : ControllerBase
     {
-        private readonly ITrolleyCalculator _trolleyCalculator;
+        private readonly IResourceServiceHttpClient _resourceServiceHttpClient;
 
-        public TrolleyTotalController(ITrolleyCalculator trolleyCalculator)
+        public TrolleyTotalController(IResourceServiceHttpClient resourceServiceHttpClient)
         {
-            _trolleyCalculator = trolleyCalculator;
+            _resourceServiceHttpClient = resourceServiceHttpClient;
         }
 
         [HttpPost]
         public async Task<decimal> Post([FromBody] TrolleyTotalRequest trolleyTotalRequest)
         {
-            return await _trolleyCalculator.Calculate(trolleyTotalRequest);
+            return await _resourceServiceHttpClient.TrolleyCalculator(trolleyTotalRequest);
         }
 
     }

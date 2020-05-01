@@ -56,9 +56,9 @@ namespace JBWooliesXTest.Test.Controllers
         {
             // Arrange
             var expectedTotal = new decimal(14);
-            var resourceServiceClient = new Mock<ITrolleyCalculator>();
+            var resourceServiceClient = new Mock<IResourceServiceHttpClient>();
             resourceServiceClient
-                .Setup(x => x.Calculate(It.IsAny<TrolleyTotalRequest>()))
+                .Setup(x => x.TrolleyCalculator(It.IsAny<TrolleyTotalRequest>()))
                 .ReturnsAsync(expectedTotal);
 
             var controller = new TrolleyTotalController(resourceServiceClient.Object);
