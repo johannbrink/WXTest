@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json;
+using JBWooliesXTest.Core;
 using JBWooliesXTest.Core.Model.Request;
 using JBWooliesXTest.Core.Model.TrolleyCalculator;
 using Xunit;
@@ -29,7 +30,7 @@ namespace JBWooliesXTest.Test.Core
         public async void Should_Calculate_Complex()
         {
             // Arrange
-            var expectedResponse = new decimal(110.21877083471924);
+            var expectedResponse = decimal.Parse("110.21877083471924");
             var request = CreateComplexTrolleyTotalRequest();
             var sut = new TrolleyCalculator();
 

@@ -2,7 +2,7 @@ using System;
 using System.Net.Http.Headers;
 using JBWooliesXTest.Core.Abstracts;
 using JBWooliesXTest.API.Services;
-using JBWooliesXTest.Core.Model.TrolleyCalculator;
+using JBWooliesXTest.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

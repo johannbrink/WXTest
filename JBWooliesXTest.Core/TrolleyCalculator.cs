@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using JBWooliesXTest.Core.Abstracts;
 using JBWooliesXTest.Core.Model.Request;
+using JBWooliesXTest.Core.Model.TrolleyCalculator;
 
-namespace JBWooliesXTest.Core.Model.TrolleyCalculator
+namespace JBWooliesXTest.Core
 {
     public class TrolleyCalculator : ITrolleyCalculator
     {
@@ -36,7 +36,7 @@ namespace JBWooliesXTest.Core.Model.TrolleyCalculator
 
                 var returnData = scenarios.Where(m => !m.RequestedItems.Any(n => n.Incomplete));
 
-                return Math.Round(returnData.OrderBy(_ => _.Total).First().Total, 12);
+                return returnData.OrderBy(_ => _.Total).First().Total;
             });
         }
     }
