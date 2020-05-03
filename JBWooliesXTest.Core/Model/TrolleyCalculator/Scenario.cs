@@ -12,11 +12,12 @@ namespace JBWooliesXTest.Core.Model.TrolleyCalculator
 
         public static List<Scenario> CreateList(TrolleyTotalRequest trolleyTotalRequest)
         {
-            var scenarios = trolleyTotalRequest.Specials.Select(special => new Scenario()
-            {
-                Special = special,
-                RequestedItems = trolleyTotalRequest.RequestedItems.Select(RequestedItem.Copy).ToList()
-            }).ToList();
+            var scenarios = trolleyTotalRequest.Specials
+                .Where(_ => _.IsValidForTrolleyTotalRequest(trolleyTotalRequest)).Select(special => new Scenario()
+                {
+                    Special = special,
+                    RequestedItems = trolleyTotalRequest.RequestedItems.Select(RequestedItem.Copy).ToList()
+                }).ToList();
             return scenarios;
         }
 
