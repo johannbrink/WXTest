@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using JBWooliesXTest.API.Controllers;
 using JBWooliesXTest.Core.Abstracts;
 using JBWooliesXTest.Core.Model.Request;
-using JBWooliesXTest.Core.Model.TrolleyTotal;
+using JBWooliesXTest.Core.Model.TrolleyCalculator;
 using Moq;
 using Xunit;
 

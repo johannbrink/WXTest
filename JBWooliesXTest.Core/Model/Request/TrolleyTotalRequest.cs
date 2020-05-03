@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using JBWooliesXTest.Core.Model.TrolleyTotal;
+using JBWooliesXTest.Core.Model.TrolleyCalculator;
 
 namespace JBWooliesXTest.Core.Model.Request
 {

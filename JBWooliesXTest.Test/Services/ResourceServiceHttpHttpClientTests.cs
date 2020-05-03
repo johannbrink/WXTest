@@ -4,7 +4,7 @@ using System.Linq;
 using JBWooliesXTest.API.Services;
 using JBWooliesXTest.Core.HttpClientModel.Resource;
 using JBWooliesXTest.Core.Model.Request;
-using JBWooliesXTest.Core.Model.TrolleyTotal;
+using JBWooliesXTest.Core.Model.TrolleyCalculator;
 using Microsoft.Extensions.Options;
 using Moq;
 using Xunit;

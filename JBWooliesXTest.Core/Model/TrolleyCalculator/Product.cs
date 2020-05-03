@@ -1,4 +1,4 @@
-﻿namespace JBWooliesXTest.Core.Model.TrolleyTotal
+﻿namespace JBWooliesXTest.Core.Model.TrolleyCalculator
 {
     public class Product
     {

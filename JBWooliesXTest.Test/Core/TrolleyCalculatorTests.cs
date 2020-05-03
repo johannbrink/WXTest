@@ -8,7 +8,6 @@ using JBWooliesXTest.Core.Abstracts;
 using JBWooliesXTest.Core.HttpClientModel.Resource;
 using JBWooliesXTest.Core.Model.Request;
 using JBWooliesXTest.Core.Model.TrolleyCalculator;
-using JBWooliesXTest.Core.Model.TrolleyTotal;
 using Moq;
 using Xunit;
 

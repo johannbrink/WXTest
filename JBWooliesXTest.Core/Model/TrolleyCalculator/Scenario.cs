@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JBWooliesXTest.Core.Model.Request;
-using JBWooliesXTest.Core.Model.TrolleyTotal;
 
 namespace JBWooliesXTest.Core.Model.TrolleyCalculator
 {
