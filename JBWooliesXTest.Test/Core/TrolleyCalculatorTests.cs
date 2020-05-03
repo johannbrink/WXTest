@@ -1,14 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text.Json;
-using System.Threading.Tasks;
-using JBWooliesXTest.API.Controllers;
-using JBWooliesXTest.Core.Abstracts;
-using JBWooliesXTest.Core.HttpClientModel.Resource;
 using JBWooliesXTest.Core.Model.Request;
 using JBWooliesXTest.Core.Model.TrolleyCalculator;
-using Moq;
 using Xunit;
 
 namespace JBWooliesXTest.Test.Core

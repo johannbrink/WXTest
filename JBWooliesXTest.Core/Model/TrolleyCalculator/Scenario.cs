@@ -10,7 +10,7 @@ namespace JBWooliesXTest.Core.Model.TrolleyCalculator
         public Special Special { get; set; }
         public List<RequestedItem> RequestedItems { get; set; }
 
-        public static List<Scenario> CreateList(TrolleyTotalRequest trolleyTotalRequest)
+        public static List<Scenario> CreateScenarioListFromValidSpecials(TrolleyTotalRequest trolleyTotalRequest)
         {
             var scenarios = trolleyTotalRequest.Specials
                 .Where(_ => _.IsValidForTrolleyTotalRequest(trolleyTotalRequest)).Select(special => new Scenario()
@@ -18,6 +18,10 @@ namespace JBWooliesXTest.Core.Model.TrolleyCalculator
                     Special = special,
                     RequestedItems = trolleyTotalRequest.RequestedItems.Select(RequestedItem.Copy).ToList()
                 }).ToList();
+            scenarios.Add(new Scenario()
+            {
+                RequestedItems = trolleyTotalRequest.RequestedItems.Select(RequestedItem.Copy).ToList()
+            });
             return scenarios;
         }
 
