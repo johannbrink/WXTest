@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
@@ -19,11 +21,26 @@ namespace JBWooliesXTest.API
         {
             try
             {
+                context.Request.EnableBuffering();
+
+                // Leave the body open so the next middleware can read it.
+                using var reader = new StreamReader(
+                    context.Request.Body,
+                    encoding: Encoding.UTF8,
+                    detectEncodingFromByteOrderMarks: false,
+                    bufferSize: 10,
+                    leaveOpen: true);
+                var body = await reader.ReadToEndAsync();
+
+                // Reset the request body stream position so the next middleware can read it
+                context.Request.Body.Position = 0;
+                
                 _logger.LogInformation(
-                    "Received HTTP Request {method} {url}{queryString}",
+                    @"Received HTTP Request {method} {url}{queryString} {body}",
                     context.Request?.Method,
                     context.Request?.Path.Value,
-                    context.Request?.QueryString.Value);
+                    context.Request?.QueryString.Value,
+                    body);
                 await _next(context);
             }
             finally
